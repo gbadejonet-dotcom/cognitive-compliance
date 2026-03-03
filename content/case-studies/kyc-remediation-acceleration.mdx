@@ -1,0 +1,81 @@
+---
+title: "KYC remediation acceleration with QA control loops"
+description: "How a structured QA and queue management approach helped a Tier-1 bank address a periodic review backlog — improving consistency, throughput, and audit trail quality."
+date: "2024-11-20"
+client: "Tier-1 bank (UK)"
+sector: "Retail & Commercial Banking"
+outcome: "Substantive reduction in re-work rates and improved QA consistency across a multi-cohort remediation programme (illustrative outcomes; actual results depend on scope and environment)"
+tags: ["KYC", "EDD", "operating model"]
+---
+
+> **Note:** This case study is illustrative. Client details have been anonymised. All outcomes described are representative of the type of value that structured remediation programmes can deliver; they do not represent guaranteed results. Actual outcomes depend on engagement scope, data quality, and client operating environment.
+
+## Background
+
+A large UK retail and commercial bank was carrying a substantial periodic review backlog — customers due for review under its risk-based approach who had not been reviewed within the required timeframe. The backlog had accumulated over 18 months, driven by a combination of operational capacity constraints and a period of organisational change.
+
+The bank had launched an internal remediation programme but was experiencing three persistent challenges:
+
+1. **Inconsistent quality**: QA sampling was showing high defect rates, with different analyst cohorts applying different standards to the same customer types.
+2. **Slow throughput**: File completion rates were below target, partly because re-work was consuming a disproportionate share of capacity.
+3. **Weak MI**: The programme management team did not have timely, reliable management information on progress, defect patterns, or analyst productivity.
+
+## Our approach
+
+We engaged on a sprint-based basis, embedded alongside the bank's existing remediation team and QA function.
+
+**Sprint 1–2: Diagnosis and taxonomy design**
+
+We began by reviewing a sample of completed files — both QA-passed and QA-failed — to understand the defect landscape. From this, we developed a structured defect taxonomy: 12 defect categories mapped to specific policy requirements, each with a severity grade (critical, significant, minor) and a documented root-cause category.
+
+The taxonomy was agreed with the bank's compliance function and QA leads, then used as the basis for a revised QA scorecard.
+
+**Sprint 3–4: Queue management and workflow structure**
+
+We implemented a structured queue management approach that:
+
+- Prioritised the backlog by risk tier (higher-risk customers moved to the front of the queue regardless of age)
+- Pre-allocated files by customer type, ensuring analysts worked within their competency (e.g., complex corporate structures allocated to senior analysts)
+- Introduced a pre-submission checklist — not a form-filling exercise, but a structured prompt that reduced "near-complete" files being submitted with gaps
+
+**Sprint 5–6: QA cycle integration**
+
+The revised QA scorecard was integrated into a weekly QA cycle:
+
+- A 10% random sample was scored against the taxonomy each week
+- Defect patterns were reviewed in a weekly QA calibration meeting with team leads
+- Critical defects triggered immediate re-work and analyst feedback; systematic defect patterns triggered targeted refresher guidance
+- Defect rates were tracked by analyst cohort, team, and customer type, enabling targeted support
+
+**Sprint 7–8: MI and reporting**
+
+A management information pack was developed for the programme management team, with weekly updates covering:
+
+- File completion rate vs. target
+- QA pass rate and trend
+- Defect breakdown by category and severity
+- Re-work volume and root cause
+- Outstanding backlog by risk tier
+
+## Outcomes
+
+By the end of the engagement, the programme was observing:
+
+- A measurable reduction in QA defect rates (illustrative: 40–50% reduction in re-work volume from the baseline; actual outcomes depend on starting position)
+- Improved throughput driven by reduced re-work and more effective pre-submission quality checking
+- Clear MI enabling programme managers to make informed resourcing and prioritisation decisions
+- A QA scorecard and defect taxonomy the bank's QA function could continue to operate independently after engagement close
+
+## What we would emphasise
+
+The improvement in this programme was not primarily driven by technology. It was driven by:
+
+1. **Explicit quality standards**: defects cannot be reduced if analysts don't know what a defect looks like
+2. **Feedback loops**: QA results need to reach analysts quickly enough to change behaviour in the same programme
+3. **Calibration**: QA teams need to agree on what they're measuring; uncalibrated QA produces noise, not signal
+
+AI agent tooling — specifically an evidence checklist agent and a defect pattern identifier — supported the workflow. But the foundational work was design: making the quality standard explicit, the feedback loop tight, and the MI reliable.
+
+---
+
+*This case study is illustrative and anonymised. All figures are representative examples. Cognitive Compliance Limited does not guarantee specific outcomes.*

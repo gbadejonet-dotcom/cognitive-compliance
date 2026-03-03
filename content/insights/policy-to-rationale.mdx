@@ -1,0 +1,67 @@
+---
+title: "From policy to rationale: making decisions reproducible"
+description: "KYC risk decisions are only as good as the reasoning behind them. Most policies are written for human readers, not machine-assisted reasoning. Closing that gap is the core design challenge in KYC automation."
+date: "2025-02-20"
+tags: ["KYC", "AI governance", "EDD"]
+author: "Cognitive Compliance"
+---
+
+Every KYC risk decision should be reproducible. Not identical across analysts — judgement will always involve some variation — but reproducible in the sense that a second qualified analyst, presented with the same information and the same policy, would reach a substantially similar conclusion and document a coherent rationale.
+
+In practice, this standard is rarely met. Ask two analysts to risk-rate the same customer independently and the variance can be substantial: not just in the final rating, but in which factors they considered important, how they weighted competing signals, and what they documented.
+
+This is not a failure of individual analysts. It is a failure of the system in which they operate.
+
+## Why policies don't translate directly to decisions
+
+Compliance policies are written for human readers. They set out principles, list relevant factors, describe escalation triggers. They are intentionally high-level — they need to apply across a range of cases that cannot be fully anticipated at writing.
+
+This creates a translation problem. Between the policy and the specific decision lies a chain of reasoning: identifying which policy provisions apply to this customer, gathering the relevant data, interpreting that data against the policy requirements, and forming a documented conclusion.
+
+This translation chain is where most KYC inconsistency originates. Analysts make different choices at each step — which factors to check, how to interpret ambiguous data, how to document the outcome — and those differences compound.
+
+## What "reproducible" actually requires
+
+Making KYC decisions reproducible requires the following elements to be explicit and consistent:
+
+**Decision variables.** Which data points are relevant to this decision type? For a standard retail customer, this might be a defined set of identity verification checks, source-of-funds indicators, and transaction behaviour patterns. For a corporate customer requiring EDD, the set is different and more complex. The variables should be defined at the policy level, not left to each analyst to determine ad hoc.
+
+**Interpretation rules.** How should specific data points be interpreted? A customer with a source of wealth described as "investment returns" requires different handling depending on whether those returns are from documented securities holdings or described vaguely as "trading." The policy needs to specify — or the agent needs to surface the ambiguity for analyst resolution.
+
+**Weighting logic.** Where multiple risk factors are present, how should they be combined? A customer with a beneficial owner from a high-risk jurisdiction and a clear, documented commercial purpose presents a different risk profile from the same customer with an opaque purpose. The relative weighting of these factors should be defined, not implicit.
+
+**Documentation standards.** What constitutes a satisfactory record of the reasoning? "Customer assessed as medium risk" is not a rationale. "Customer assessed as medium risk due to (a) HNWI source of wealth supported by professional accounting confirmation, (b) operations in one FATF-listed jurisdiction offset by (c) established banking relationship of 8 years with no adverse indicators" is one.
+
+## Where agents help
+
+A well-designed agent can operationalise the translation from policy to rationale. It can:
+
+- Prompt the analyst through a structured set of decision variables derived from the policy
+- Surface relevant data from available sources, flagging gaps and quality issues
+- Apply defined interpretation rules consistently, surfacing cases that don't fit neatly
+- Pre-populate a structured rationale template based on the analyst's inputs
+- Highlight where the case involves combinations of factors that have historically been escalated
+
+What the agent cannot do — and should not attempt — is make the final judgement in ambiguous cases. Where the policy is silent, where the data is incomplete, or where the combination of factors is genuinely unusual, human judgement is required. The agent's role is to ensure that judgement is applied to a complete, well-structured analytical picture, not to a partial and inconsistently assembled one.
+
+## The documentation design challenge
+
+The output of a well-designed KYC decision process is not just a risk rating. It is a documented record of the reasoning: which factors were considered, what the data showed, how the policy was applied, and what conclusion was reached.
+
+Most KYC systems are not designed with this in mind. Free-text rationale fields accept any input. QA functions check that the field is populated, not that the content is adequate. Templates, where they exist, are often too generic to enforce meaningful documentation standards.
+
+Designing documentation as a structured output — with required fields, defined vocabulary, and validation against a minimum standard — is one of the highest-value investments a compliance programme can make. It is also one of the least glamorous, which is why it is often deferred.
+
+## Reproducibility as a regulatory and governance objective
+
+Regulators assess KYC programmes partly by examining individual files: is the decision documented? Is the rationale coherent? Does the risk rating make sense given the customer's profile? Inconsistency across a file population — high-risk customers rated medium with weak rationale, or standard customers subjected to disproportionate scrutiny — is a finding.
+
+Beyond regulatory compliance, reproducibility enables organisational learning. When you can examine a population of decisions and understand why they were made, you can identify where the policy is unclear, where training is needed, and where the system is producing outcomes that are inconsistent with intent.
+
+You cannot improve what you cannot examine. You cannot examine what was never documented.
+
+Building KYC processes around reproducible, documented decision logic is not about making compliance mechanical. It is about making it legible — to auditors, to regulators, to QA functions, and to the analysts themselves when they return to a file six months later and need to understand what was decided and why.
+
+---
+
+*This article is for informational purposes only and does not constitute legal or regulatory advice.*

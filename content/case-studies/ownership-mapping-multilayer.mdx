@@ -1,0 +1,79 @@
+---
+title: "Ownership mapping for multi-layer structures"
+description: "How AI-assisted entity resolution helped a specialist corporate service provider produce defensible UBO analysis for complex, multi-jurisdiction structures — faster and with better documentation."
+date: "2024-12-10"
+client: "Corporate Service Provider (UK-regulated)"
+sector: "Trust & Corporate Services"
+outcome: "Demonstrably faster UBO identification with improved analytical documentation quality; analyst research time on complex cases substantially reduced (illustrative; actual results depend on case complexity and data availability)"
+tags: ["KYC", "EDD"]
+---
+
+> **Note:** This case study is illustrative. Client details have been anonymised. All outcomes are representative and depend on engagement scope and case characteristics.
+
+## Background
+
+A UK-regulated corporate service provider (CSP) was facing a structural challenge common to the sector: its client base consisted disproportionately of complex, multi-jurisdiction corporate structures, and the analytical resources required to map these structures thoroughly were outpacing capacity.
+
+The CSP's KYC team was experienced — they understood how to read registry documents, how to follow ownership chains, and what the red flags looked like. The problem was time. A complex structure with beneficial owners across four jurisdictions, one of which used nominee directors as standard, could take a senior analyst two to three days to document satisfactorily. Throughput at EDD level was the binding constraint on new business onboarding.
+
+The firm had considered outsourcing this work but had rejected it on quality grounds: the analytical judgements required were nuanced enough that generalist outsource teams would produce unreliable output, and the compliance and reputational risk of poor UBO analysis in the CSP sector is acute.
+
+## Our approach
+
+We were engaged to design and implement an AI-assisted ownership mapping workflow that would:
+
+1. Accelerate the data gathering and entity resolution phases of UBO analysis
+2. Improve the consistency and completeness of analytical documentation
+3. Maintain — and ideally improve — analytical quality, with human analyst review at every material conclusion
+
+**Phase 1: Workflow mapping and agent scoping**
+
+We began by mapping the existing ownership analysis workflow in detail: what data sources analysts used, in what order, what judgements they made at each step, and where time was being lost.
+
+From this we identified two areas where agent assistance would have the highest impact:
+
+- **Entity disambiguation**: resolving different name variants, address formats, and registration numbers across multiple registry sources
+- **Structure graph construction**: building the initial ownership graph from raw registry data, flagging nominee indicators, and surfacing jurisdiction-specific risk signals
+
+We scoped the agent narrowly. It would not assess whether the structure was commercially coherent (that remained a human analytical judgement). It would not assess PEP or sanctions status (existing screening tools handled this). It would accelerate the mechanical work of data gathering and initial structure construction.
+
+**Phase 2: Agent design and calibration**
+
+The entity resolution agent was designed to:
+
+- Aggregate registry data from multiple sources for identified entities
+- Apply fuzzy matching to resolve naming variants, with confidence scoring
+- Flag nominee director patterns by jurisdiction (different jurisdictions have different norms; the agent was calibrated accordingly)
+- Identify circular ownership indicators and flag for human review
+- Generate a structured output — a populated ownership graph template — for analyst review and completion
+
+Calibration involved running the agent against a sample of previously completed complex files, comparing agent output to the analyst's final work product, and adjusting thresholds and flag criteria accordingly.
+
+**Phase 3: Workflow integration and analyst training**
+
+The agent was integrated into the team's existing file management process. Analysts received the agent's preliminary output at the start of a case and used it as a structured starting point for their own analysis.
+
+Training focused on one principle: the agent output is a first draft, not a conclusion. Analysts were given explicit guidance on which elements required independent verification (all material UBO conclusions), which agent flags warranted immediate escalation (circular ownership, nominee concentration above threshold), and how to document departures from the agent's initial graph.
+
+## Outcomes
+
+After a three-month integration period, the firm observed:
+
+- A reduction in analyst time on the data-gathering and initial structure-construction phases of complex cases (illustrative: 50–65% time reduction on these specific phases — not total case time)
+- Improved completeness of documentary evidence referenced in the analytical record
+- More consistent use of jurisdiction-specific risk flags, including some that analysts had been applying inconsistently
+- Higher QA pass rates on ownership documentation completeness
+
+Analyst feedback was relevant: the agent was most useful on cases involving standard corporate structures with clear registry data. It was less useful — and required more substantive analyst supplementation — on cases involving trust arrangements, bearer shares (historically issued), or jurisdictions with poor registry data quality. These findings were documented as known limitations.
+
+## What we would emphasise
+
+**Agent scope discipline is critical.** The agent in this engagement was scoped tightly to data gathering and initial structure construction. It did not make analytical judgements. When we discussed expanding the scope to include preliminary red-flag assessment, we concluded that the risk of low-quality automated red-flag generation — which could cause analysts to anchor on incorrect initial conclusions — outweighed the efficiency benefit.
+
+**Limitations should be documented, not minimised.** The agent's known limitations (jurisdiction coverage, trust structure handling, registry data quality sensitivity) were documented in the operator playbook and shared with the QA function. QA applied additional scrutiny to cases in these categories. This is the correct response to model limitations: tighten controls, don't pretend the limitation doesn't exist.
+
+**The output is only as good as the input data.** In several cases, registry data was incomplete or outdated. The agent surfaced these gaps — it did not fill them with guesses. Analysts followed up directly with clients or via agents in the relevant jurisdiction. The explicitness of the gap-surfacing was itself a quality improvement over the previous workflow, where gaps were sometimes not clearly documented.
+
+---
+
+*This case study is illustrative and anonymised. All figures are representative examples. Cognitive Compliance Limited does not guarantee specific outcomes.*
