@@ -109,6 +109,9 @@ Copy `.env.example` to `.env.local` and fill in values:
 | `RESEND_API_KEY` | For email | Your Resend API key |
 | `CONTACT_TO_EMAIL` | For email | Where contact submissions are sent |
 | `CONTACT_FROM_EMAIL` | For email | Sender address (must be verified in Resend) |
+| `HEYGEN_API_KEY` | For video generation | HeyGen API key used only by server-side API routes |
+| `HEYGEN_AVATAR_ID` | For video generation | HeyGen avatar ID for `/video-generator` |
+| `HEYGEN_VOICE_ID` | For video generation | HeyGen voice ID for `/video-generator` |
 | `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | Optional | Enables Plausible analytics |
 | `NEXT_PUBLIC_POSTHOG_KEY` | Optional | Enables PostHog analytics |
 | `NEXT_PUBLIC_POSTHOG_HOST` | Optional | PostHog host URL |
@@ -164,6 +167,36 @@ Your content here...
 ## Video production assets
 
 Production-ready creative prompts and scripts for external video generation workflows live in `content/video/`. The current HeyGen-ready documentary package is `content/video/ownership-structures-documentary-heygen.md`.
+
+---
+
+## HeyGen video generator setup
+
+The `/video-generator` page provides an internal production workflow for the ownership-structures documentary script stored at `content/video/ownership-structures-documentary-heygen.md`. It loads the Markdown script on the server, extracts the spoken narration into HeyGen scenes, and calls HeyGen through server-side API routes so the API key is never exposed to the browser.
+
+### Required environment variables
+
+Add these values to `.env.local` for local development and to your deployment provider for production:
+
+```bash
+HEYGEN_API_KEY=hg_xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+HEYGEN_AVATAR_ID=your_heygen_avatar_id
+HEYGEN_VOICE_ID=your_heygen_voice_id
+```
+
+Do **not** prefix these variables with `NEXT_PUBLIC_`. They are read only by the server routes at `/api/heygen/generate` and `/api/heygen/status`.
+
+### Workflow
+
+1. Start the app with `npm run dev`.
+2. Open `http://localhost:3000/video-generator`.
+3. Confirm the script preview and scene count.
+4. Click **Generate in HeyGen**.
+5. The app calls `POST https://api.heygen.com/v2/video/generate` from the server and saves the returned `video_id` in the browser for later status checks.
+6. The page polls `/api/heygen/status`, which securely calls HeyGen's status endpoint, until HeyGen reports `completed`.
+7. When ready, the final `video_url` is displayed on the page.
+
+> Note: HeyGen plan limits, per-scene text limits, and rendering duration limits may affect whether a full 60-minute documentary can be generated in one request. The app splits the spoken script into multiple scenes and keeps API credentials server-side.
 
 ---
 
