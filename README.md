@@ -161,6 +161,12 @@ Your content here...
 
 ---
 
+## Video production assets
+
+Production-ready creative prompts and scripts for external video generation workflows live in `content/video/`. The current HeyGen-ready documentary package is `content/video/ownership-structures-documentary-heygen.md`.
+
+---
+
 ## Deployment (Vercel)
 
 ### Option A: Vercel CLI

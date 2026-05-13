@@ -45,7 +45,7 @@ const services = [
     title: 'Remediation & Quality Assurance',
     tagline: 'Structure and governance for remediation programmes — from backlog to MI.',
     description:
-      'Regulatory-driven remediation programmes often suffer from the same problems they're trying to fix: inconsistency, poor documentation, and inadequate quality assurance. We implement structured tooling that manages queues, standardises evidence checklisting, applies consistent QA scoring, and produces management information your second and third lines can rely on.',
+      'Regulatory-driven remediation programmes often suffer from the same problems they’re trying to fix: inconsistency, poor documentation, and inadequate quality assurance. We implement structured tooling that manages queues, standardises evidence checklisting, applies consistent QA scoring, and produces management information your second and third lines can rely on.',
     useCases: [
       'Periodic review backlogs and catch-up programmes',
       'Regulatory or s166-driven remediation',
