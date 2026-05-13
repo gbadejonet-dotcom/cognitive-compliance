@@ -16,8 +16,7 @@ export interface ContactPayload {
 export async function sendContactEmail(payload: ContactPayload): Promise<void> {
   const apiKey = process.env.RESEND_API_KEY
   const toEmail = process.env.CONTACT_TO_EMAIL ?? 'hello@cognitivecompliance.co.uk'
-  const fromEmail =
-    process.env.CONTACT_FROM_EMAIL ?? 'no-reply@cognitivecompliance.co.uk'
+  const fromEmail = process.env.CONTACT_FROM_EMAIL ?? 'no-reply@cognitivecompliance.co.uk'
 
   if (!apiKey) {
     // In development without a key, log and return gracefully
@@ -34,7 +33,7 @@ export async function sendContactEmail(payload: ContactPayload): Promise<void> {
   await resend.emails.send({
     from: fromEmail,
     to: toEmail,
-    replyTo: payload.email,
+    reply_to: payload.email,
     subject: `New enquiry from ${payload.name} — ${payload.company}`,
     text: `
 New enquiry via cognitivecompliance.co.uk

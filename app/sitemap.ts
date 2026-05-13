@@ -2,11 +2,9 @@ import type { MetadataRoute } from 'next'
 import { getAllContent } from '@/lib/mdx'
 import { SITE_URL } from '@/lib/utils'
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const insights = getAllContent('insights').catch(() => [])
-  const caseStudies = getAllContent('case-studies').catch(() => [])
-
-  const [insightList, caseStudyList] = await Promise.all([insights, caseStudies])
+export default function sitemap(): MetadataRoute.Sitemap {
+  const insightList = getAllContent('insights')
+  const caseStudyList = getAllContent('case-studies')
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
