@@ -3,8 +3,7 @@ import { getAllContent } from '@/lib/mdx'
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/utils'
 
 export async function GET() {
-  const posts = getAllContent('insights').catch(() => [])
-  const items = await posts
+  const items = getAllContent('insights')
 
   const feed = new Feed({
     title: `${SITE_NAME} — Insights`,

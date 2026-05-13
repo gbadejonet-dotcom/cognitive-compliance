@@ -184,7 +184,7 @@ HEYGEN_AVATAR_ID=your_heygen_avatar_id
 HEYGEN_VOICE_ID=your_heygen_voice_id
 ```
 
-Do **not** prefix these variables with `NEXT_PUBLIC_`. They are read only by the server routes at `/api/heygen/generate` and `/api/heygen/status`.
+Do **not** prefix these variables with `NEXT_PUBLIC_`. They are read only by the server routes at `/api/heygen/generate` and `/api/heygen/status`. Real HeyGen API keys must be placed in `.env.local` or deployment environment variables and must never be committed to GitHub.
 
 ### Workflow
 

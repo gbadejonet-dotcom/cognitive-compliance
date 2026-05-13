@@ -1,16 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from '@/lib/utils'
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -85,7 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const posthogKey = process.env.NEXT_PUBLIC_POSTHOG_KEY
 
   return (
-    <html lang="en-GB" className={inter.variable}>
+    <html lang="en-GB">
       <head>
         <script
           type="application/ld+json"
@@ -93,11 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         {/* Plausible analytics — optional */}
         {plausibleDomain && (
-          <script
-            defer
-            data-domain={plausibleDomain}
-            src="https://plausible.io/js/script.js"
-          />
+          <script defer data-domain={plausibleDomain} src="https://plausible.io/js/script.js" />
         )}
       </head>
       <body className="flex min-h-screen flex-col">

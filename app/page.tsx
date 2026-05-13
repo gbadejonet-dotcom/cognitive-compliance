@@ -21,7 +21,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Container } from '@/components/shared/Container'
 import { SectionHeader } from '@/components/shared/SectionHeader'
-import { getAllContent } from '@/lib/mdx'
+import { getAllContent, type ContentSummary } from '@/lib/mdx'
 import { formatDate, SITE_URL } from '@/lib/utils'
 import { buildMetadata } from '@/lib/metadata'
 
@@ -96,7 +96,7 @@ const governancePillars = [
 ]
 
 export default function HomePage() {
-  let allInsights
+  let allInsights: ContentSummary[]
   try {
     allInsights = getAllContent('insights')
   } catch {
@@ -123,8 +123,7 @@ export default function HomePage() {
               AI-native compliance consulting
             </Badge>
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              KYC compliance that{' '}
-              <span className="text-blue-400">reasons,</span>
+              KYC compliance that <span className="text-blue-400">reasons,</span>
               <br className="hidden sm:block" />
               not just rules.
             </h1>
@@ -195,7 +194,7 @@ export default function HomePage() {
               },
             ].map((item) => (
               <div key={item.step} className="relative">
-                <div className="text-5xl font-black text-slate-100 select-none">{item.step}</div>
+                <div className="select-none text-5xl font-black text-slate-100">{item.step}</div>
                 <div className="-mt-4">
                   <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.body}</p>
@@ -259,7 +258,7 @@ export default function HomePage() {
               return (
                 <div
                   key={industry.label}
-                  className="flex flex-col items-center rounded-xl border border-white/10 bg-white/5 p-5 text-center hover:bg-white/10 transition-colors"
+                  className="flex flex-col items-center rounded-xl border border-white/10 bg-white/5 p-5 text-center transition-colors hover:bg-white/10"
                 >
                   <Icon className="h-6 w-6 text-blue-400" aria-hidden="true" />
                   <span className="mt-3 text-xs font-medium leading-snug text-slate-300">
@@ -328,7 +327,7 @@ export default function HomePage() {
                 <Link
                   key={post.slug}
                   href={`/insights/${post.slug}`}
-                  className="group block rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-slate-300"
+                  className="group block rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-slate-300 hover:shadow-md"
                 >
                   <div className="flex flex-wrap gap-2">
                     {post.tags?.slice(0, 2).map((tag: string) => (
@@ -337,10 +336,10 @@ export default function HomePage() {
                       </Badge>
                     ))}
                   </div>
-                  <h3 className="mt-4 text-base font-semibold leading-snug text-slate-900 group-hover:text-blue-700 transition-colors">
+                  <h3 className="mt-4 text-base font-semibold leading-snug text-slate-900 transition-colors group-hover:text-blue-700">
                     {post.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600 line-clamp-3">
+                  <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600">
                     {post.description}
                   </p>
                   <div className="mt-4 flex items-center gap-3 text-xs text-slate-400">
